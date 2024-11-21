@@ -1,0 +1,62 @@
+# Airbnb Scraper
+
+This script scrapes detailed information about Airbnb listings, including SEO data, room details, and pricing breakdowns for specified check-in and check-out dates. The data is collected from multiple Airbnb URLs and saved in a CSV file for analysis.
+
+---
+
+## **Features**
+- Fetches listing details such as title, meta description, property type, and location.
+- Extracts detailed pricing information, including cleaning fees, service fees, taxes, and total price.
+- Handles multiple Airbnb links and check-in/out date combinations.
+- Encodes room IDs to Base64 for API requests.
+- Saves the extracted data to a CSV file (`prices_data_multiple_links.csv`).
+
+---
+
+
+## **How It Works**
+
+### **1. Input Links**
+Add the Airbnb listing URLs to the `links` list:
+```python
+links = [
+    "www.airbnb.co.uk/rooms/24825904?adults=4&child...",
+    "www.airbnb.co.uk/rooms/54105992?adults=4&child...",
+    ...
+]
+```
+
+### **2. Date Range**
+Specify a starting check-in date and the number of days to generate check-in/out combinations:
+
+### **3. API Requests**
+The script sends GET requests to Airbnb's API with dynamically generated query parameters. A `UserAgent` library is used to mimic real browser requests.
+
+### **4. Data Extraction**
+Key data points are extracted from the JSON response, including:
+- **SEO Data**: Title, meta description, canonical URL.
+- **Room Info**: Rating, reviews, property type, capacity, and location.
+- **Pricing Details**: Primary price, cleaning fee, service fee, taxes, and total.
+
+### **5. CSV Export**
+The extracted data is saved in a CSV file named `prices_data_multiple_links.csv` for further analysis.
+
+---
+
+## **Usage**
+
+1. Add Airbnb URLs to the `links` list.
+
+2. Specify the check-in date and the duration for which you want to collect data.
+
+3. Run the script:
+ 
+4. The output CSV file will be generated in the current directory.
+
+---
+
+## **Error Handling**
+- The script handles HTTP errors, missing keys, and other exceptions gracefully.
+- Logs messages for any request failures or missing data for debugging.
+
+---

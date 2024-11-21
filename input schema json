@@ -1,0 +1,41 @@
+{
+    "title": "Cheerio Crawler input",
+    "description": "To update crawler to another site, you need to change startUrls and pageFunction options!",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "startUrls": {
+            "title": "Start URLs",
+            "type": "array",
+            "description": "URLs to start with",
+            "prefill": [
+                { "url": "https://www.airbnb.co.uk/rooms/7431972" }
+                
+               
+            ],
+            "editor": "requestListSources"
+        },
+        "checkInDate": {
+            "title": "Check-in Date",
+            "type": "string",
+            "description": "Default check-in date (format: YYYY-MM-DD)",
+            "default": "2024-12-25",
+            "editor": "textfield"
+        },
+        "checkOutDate": {
+            "title": "Check-out Date",
+            "type": "string",
+            "description": "Default check-out date (format: YYYY-MM-DD)",
+            "default": "2024-12-30",
+            "editor": "textfield"
+        },
+        "numberOfDays": {
+            "title": "Duration of Data Required (in Days)",
+            "type": "string",
+            "description": "Number of days to calculate check-in and check-out dates",
+            "default": "60",
+            "editor": "textfield"
+        }
+    },
+    "required": ["startUrls", "checkInDate", "numberOfDays"]
+}

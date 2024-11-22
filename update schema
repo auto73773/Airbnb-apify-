@@ -1,0 +1,60 @@
+{
+    "title": "Cheerio Crawler Input",
+    "description": "To update crawler to another site, you need to change startUrls and pageFunction options!",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "startUrls": {
+            "title": "Start URLs",
+            "type": "array",
+            "description": "URLs to start with",
+            "prefill": [
+                { "url": "https://www.airbnb.co.uk/rooms/7431972" }
+            ],
+            "editor": "requestListSources"
+        },
+        "checkInDate": {
+            "title": "Check-in Date",
+            "type": "string",
+            "description": "Default check-in date (format: YYYY-MM-DD)",
+            "default": "2024-12-25",
+            "editor": "textfield"
+        },
+        "numberOfDays": {
+            "title": "Duration of Data Required (in Days)",
+            "type": "string",
+            "description": "Number of days to calculate check-in and check-out dates",
+            "default": "60",
+            "editor": "textfield"
+        },
+        "adults": {
+            "title": "Number of Adults",
+            "type": "integer",
+            "description": "Number of adults",
+            "default": 2,
+            "editor": "number"
+        },
+        "children": {
+            "title": "Number of Children",
+            "type": "integer",
+            "description": "Number of children",
+            "default": 0,
+            "editor": "number"
+        },
+        "pets": {
+            "title": "Number of Pets",
+            "type": "integer",
+            "description": "Number of pets",
+            "default": 0,
+            "editor": "number"
+        },
+        "differenceBetweenCheckInCheckOut": {
+            "title": "Difference Between Check-in and Check-out",
+            "type": "integer",
+            "description": "Number of days between check-in and check-out dates",
+            "default": 1,
+            "editor": "number"
+        }
+    },
+    "required": ["startUrls", "checkInDate", "numberOfDays", "adults"]
+}
